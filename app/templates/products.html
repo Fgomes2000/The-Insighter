@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>ID: {{ product.id }}, Name: {{ product.name }}, Price: ${{ product.price }}, Category: {{ product.category }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/add_product">Add New Product</a>
+</body>
+</html>
+Template for /sales
+Create a file named sales.html inside the templates folder. Add the following code:
+
+xml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Transactions</title>
+</head>
+<body>
+    <h1>Sales Transactions</h1>
+    <ul>
+        {% for sale in sales %}
+            <li>ID: {{ sale.id }}, Customer ID: {{ sale.customer_id }}, Product ID: {{ sale.product_id }},
+                Quantity: {{ sale.quantity }}, Price: ${{ sale.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/add_sale">Add New Sale</a>
+</body>
+</html>
