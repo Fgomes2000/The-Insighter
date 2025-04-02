@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>The Insighter</title>
+    <title>Flask App</title>
 </head>
 <body>
-    <h1>Welcome to The Insighter!</h1>
+    <h1>Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - {{ user.email }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

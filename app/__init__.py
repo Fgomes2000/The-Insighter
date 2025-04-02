@@ -1,16 +1,15 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
 app = Flask(__name__)
-
-# Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+basedir = os.path.abspath(os.path.dirname(__file__))
+database_path = os.path.join(basedir, '..', 'instance', 'database.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + database_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'your_secret_key'
+
+print(f"Database URI set to: {app.config['SQLALCHEMY_DATABASE_URI']}")  # <-- ADD THIS LINE
 
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
-# Import models and routes
-from app import models, routes
+from app import routes, models
